@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Selector Forms</title>
+    <style>
+        /* Element Selector */
+        p {
+            color: blue;
+        }
+
+        /* Class Selector */
+        .highlight {
+            background-color: yellow;
+        }
+
+        /* ID Selector */
+        #unique {
+            font-weight: bold;
+        }
+
+        /* Attribute Selector */
+        input[type="text"] {
+            border: 2px solid red;
+        }
+
+        /* Pseudo-class Selector */
+        a:hover {
+            color: green;
+        }
+    </style>
+</head>
+<body>
+    <p>This is a paragraph.</p>
+    <p class="highlight">This paragraph has a highlighted background.</p>
+    <p id="unique">This paragraph is bold using an ID selector.</p>
+    <input type="text" placeholder="Type here...">
+    <br><br>
+    <a href="#">Hover over me!</a>
+</body>
+</html>

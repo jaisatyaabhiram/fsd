@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Voter Eligibility Check</title>
+    <script>
+        function checkVoter() {
+            let name = prompt("Enter your name:");
+            let age = prompt("Enter your age:");
+            age = parseInt(age);
+
+            if (isNaN(age)) {
+                alert("Please enter a valid number for age.");
+            } else if (age >= 18) {
+                document.getElementById("result").innerHTML = `Hello ${name}, you are eligible to vote.`;
+            } else {
+                document.getElementById("result").innerHTML = `Sorry ${name}, you must be at least 18 years old to vote.`;
+            }
+        }
+    </script>
+</head>
+<body onload="checkVoter()">
+    <h2>Voter Eligibility Checker</h2>
+    <p id="result"></p>
+</body>
+</html>
