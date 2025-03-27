@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration Form with Validation</title>
+</head>
+<body>
+
+    <h2>Registration Form</h2>
+    <form id="registrationForm" onsubmit="return validateForm()" method="POST">
+        <!-- Name -->
+        <label for="name">Name (Minimum 6 characters, start with alphabet, alphanumeric):</label><br>
+        <input type="text" id="name" name="name" required><br><br>
+
+        <!-- Mobile -->
+        <label for="mobile">Mobile (10 digits, numbers only):</label><br>
+        <input type="text" id="mobile" name="mobile" required><br><br>
+
+        <!-- Email -->
+        <label for="email">Email (Format: xxxxxxx@xxxxxx.xxx):</label><br>
+        <input type="email" id="email" name="email" required><br><br>
+
+        <!-- Submit Button -->
+        <input type="submit" value="Submit">
+    </form>
+
+    <script>
+        function validateForm() {
+            // Get form values
+            let name = document.getElementById("name").value;
+            let mobile = document.getElementById("mobile").value;
+            let email = document.getElementById("email").value;
+
+            // Validate Name: Starts with alphabet, alphanumeric, and minimum 6 characters
+            let nameRegex = /^[A-Za-z][A-Za-z0-9]{5,}$/;
+            if (!nameRegex.test(name)) {
+                alert("Name must start with an alphabet and be alphanumeric with at least 6 characters.");
+                return false;
+            }
+
+            // Validate Mobile: Only numbers and exactly 10 digits
+            let mobileRegex = /^[0-9]{10}$/;
+            if (!mobileRegex.test(mobile)) {
+                alert("Mobile number must be exactly 10 digits.");
+                return false;
+            }
+
+            // Validate Email: Should match the format xxxxxxx@xxxxxx.xxx
+            let emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
+            if (!emailRegex.test(email)) {
+                alert("Email must be in the format xxxxxxx@xxxxxx.xxx.");
+                return false;
+            }
+
+            // If all validations pass
+            return true;
+        }
+    </script>
+
+</body>
+</html>
