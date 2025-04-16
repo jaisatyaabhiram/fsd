@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Registration Validation</title>
+    <script>
+        function validateForm() {
+            let name = document.forms["regForm"]["name"].value;
+            let mobile = document.forms["regForm"]["mobile"].value;
+            let email = document.forms["regForm"]["email"].value;
+
+            let nameRegex = /^[A-Za-z][A-Za-z0-9]{5,}$/;
+            let mobileRegex = /^[0-9]{10}$/;
+            let emailRegex = /^[a-zA-Z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$/;
+
+            if (!nameRegex.test(name)) {
+                alert("Invalid Name");
+                return false;
+            }
+            if (!mobileRegex.test(mobile)) {
+                alert("Invalid Mobile Number");
+                return false;
+            }
+            if (!emailRegex.test(email)) {
+                alert("Invalid Email Format");
+                return false;
+            }
+            alert("Validation Passed!");
+            return true;
+        }
+    </script>
+</head>
+<body>
+    <h2>Registration Form</h2>
+    <form name="regForm" onsubmit="return validateForm()">
+        Name: <input type="text" name="name"><br><br>
+        Mobile: <input type="text" name="mobile"><br><br>
+        Email: <input type="text" name="email"><br><br>
+        <input type="submit" value="Register">
+    </form>
+</body>
+</html>
